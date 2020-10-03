@@ -7,6 +7,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation common.kotlin
     implementation common.coroutines
+    implementation common.coroutinesCommon
 }
 
 sourceCompatibility = "7"

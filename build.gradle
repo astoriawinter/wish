@@ -2,11 +2,12 @@
 buildscript {
     ext {
         kotlin_version = "1.3.72"
-        coroutines = "1.3.2"
+        coroutines = "1.3.7"
 
         common = [
                 kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
-                coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+                coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
+                coroutinesCommon: "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$coroutines"
         ]
     }
     repositories {
