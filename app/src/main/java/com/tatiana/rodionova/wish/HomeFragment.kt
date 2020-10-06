@@ -46,7 +46,6 @@ class HomeFragment : Fragment() {
         )
 
         add.setOnClickListener {
-            //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             AddWishBottomSheet().show(parentFragmentManager, AddWishBottomSheet::class.java.simpleName)
         }
     }
