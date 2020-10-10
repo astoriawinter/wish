@@ -1,6 +1,6 @@
 # wish [WIP]
 
-App that helps to find out what presents you friends wish to recieve.
+App that helps to find out what presents you friends wish to receive.
 
 stack
 - Firebase Cloud Firestore + Room

@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import java.util.concurrent.atomic.AtomicReference
 
+//FIXME: format code: ctrl+alt+L
 
 fun View.clicks(): Flow<Unit> {
   return callbackFlow {

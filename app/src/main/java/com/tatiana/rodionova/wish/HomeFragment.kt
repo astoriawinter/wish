@@ -21,6 +21,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //FIXME: очень громоздко, стоит вынести куда-нибудь, минимум в приватный метод.
         TapTargetView.showFor(
             requireActivity(),
             TapTarget.forView(
@@ -40,6 +41,8 @@ class HomeFragment : Fragment() {
             object : TapTargetView.Listener() {
                 override fun onTargetClick(view: TapTargetView?) {
                     super.onTargetClick(view)
+                    //FIXME: по субъетивным ощущениям, лучше использовать view?.performClick()
+                    // а еще лучше сразу действие, которое надо сделать, без посредника в виде клика
                     add.performClick()
                 }
             }
