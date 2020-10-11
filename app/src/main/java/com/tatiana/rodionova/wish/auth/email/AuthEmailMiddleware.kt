@@ -13,7 +13,10 @@ class AuthEmailMiddleware(
     private val auth: FirebaseAuth
 ) : Middleware<Action, AuthEmailState> {
     override fun bind(actions: Flow<Action>, state: Flow<AuthEmailState>): Flow<Action> =
+        //FIXME: Смущает меня фильтрация по инстансу. Предложить ничего не могу, надо разбираться
+        // сильно детальнее, но может можно дженериками ограничить тип экшена.
         actions.filterIsInstance<AuthEmailAction.LoginWithEmail>()
+                //FIXME: Зачем преобразуется в Pair, если вторая часть пары не используется потом?
             .withLatestFrom(state) { action, currentState -> action to currentState }
             .map { (action, _) ->
                 try {

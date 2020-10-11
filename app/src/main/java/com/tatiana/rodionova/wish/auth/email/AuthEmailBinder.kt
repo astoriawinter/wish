@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
 class AuthEmailBinder : ViewModel() {
+    //TODO: Перенести создание зависимости в DI.
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val store = Store<Action, AuthEmailState>(
         reducer = AuthEmailReducer(),
