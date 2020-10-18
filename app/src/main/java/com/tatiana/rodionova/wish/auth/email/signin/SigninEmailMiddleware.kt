@@ -1,5 +1,6 @@
-package com.tatiana.rodionova.wish.auth.email
+package com.tatiana.rodionova.wish.auth.email.signin
 
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.tatiana.rodionova.mvi_core.Action
 import com.tatiana.rodionova.mvi_core.Middleware
@@ -9,11 +10,11 @@ import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 
-class AuthEmailMiddleware(
+class SigninEmailMiddleware(
     private val auth: FirebaseAuth
-) : Middleware<Action, AuthEmailState> {
-    override fun bind(actions: Flow<Action>, state: Flow<AuthEmailState>): Flow<Action> =
-        actions.filterIsInstance<AuthEmailAction.LoginWithEmail>()
+) : Middleware<Action, SigninEmailState> {
+    override fun bind(actions: Flow<Action>, state: Flow<SigninEmailState>): Flow<Action> =
+        actions.filterIsInstance<SigninEmailAction.LoginWithEmail>()
             .withLatestFrom(state) { action, currentState -> action to currentState }
             .map { (action, _) ->
                 try {
@@ -22,10 +23,10 @@ class AuthEmailMiddleware(
                         .await()
                         .user
                     if (user != null) {
-                        AuthEmailInternalAction.LoginWithEmailSuccess
-                    } else AuthEmailInternalAction.LoginWithEmailFailure
+                        SigninEmailInternalAction.LoginWithEmailSuccess
+                    } else SigninEmailInternalAction.LoginWithEmailFailure
                 } catch (e: Exception) {
-                    AuthEmailInternalAction.LoginWithEmailFailure
+                    SigninEmailInternalAction.LoginWithEmailFailure
                 }
             }
 }
