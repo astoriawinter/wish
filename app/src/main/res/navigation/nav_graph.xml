@@ -28,17 +28,28 @@
     <fragment
         android:id="@+id/authSelectorFragment"
         android:name="com.tatiana.rodionova.wish.auth.selector.AuthSelectorFragment"
-        android:label="AuthSelectorFragment" >
+        android:label="AuthSelectorFragment">
         <action
             android:id="@+id/action_authSelectorFragment_to_authEmailFragment"
             app:destination="@id/authEmailFragment" />
+        <action
+            android:id="@+id/action_authSelectorFragment_to_signupEmailFragment"
+            app:destination="@id/signupEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/authEmailFragment"
-        android:name="com.tatiana.rodionova.wish.auth.email.AuthEmailFragment"
-        android:label="AuthEmailFragment" >
+        android:name="com.tatiana.rodionova.wish.auth.email.signin.SigninEmailFragment"
+        android:label="AuthEmailFragment">
         <action
             android:id="@+id/action_authEmailFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupEmailFragment"
+        android:name="com.tatiana.rodionova.wish.auth.email.signup.SignupEmailFragment"
+        android:label="SignupEmailFragment">
+        <action
+            android:id="@+id/action_signupEmailFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
