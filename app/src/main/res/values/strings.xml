@@ -9,8 +9,11 @@
 
     <string name="hello_first_fragment">Here will be list of your wishes</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="login_with_email">Login with email</string>
-    <string name="login_with_phone">Login with phone</string>
+    <string name="login_with_email">Sign in</string>
+    <string name="login_with_phone">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in_with">Sign in with</string>
+    <string name="name">Name</string>
 </resources>
