@@ -1,9 +1,7 @@
 package com.tatiana.rodionova.wish
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.getkeepsafe.taptargetview.TapTarget
 import com.getkeepsafe.taptargetview.TapTargetView
@@ -12,15 +10,19 @@ import kotlinx.android.synthetic.main.fragment_first.*
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class HomeFragment : Fragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_first, container, false)
-    }
+class HomeFragment : Fragment(R.layout.fragment_first) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initTapTargetView()
+
+        add.setOnClickListener {
+            AddWishBottomSheet().show(parentFragmentManager, AddWishBottomSheet::class.java.simpleName)
+        }
+    }
+
+    private fun initTapTargetView() {
         TapTargetView.showFor(
             requireActivity(),
             TapTarget.forView(
@@ -44,9 +46,5 @@ class HomeFragment : Fragment() {
                 }
             }
         )
-
-        add.setOnClickListener {
-            AddWishBottomSheet().show(parentFragmentManager, AddWishBottomSheet::class.java.simpleName)
-        }
     }
 }
